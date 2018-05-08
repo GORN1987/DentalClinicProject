@@ -1,0 +1,42 @@
+<%= form_with(model: dentist, local: true) do |form| %>
+  <% if dentist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dentist.errors.count, "error") %> prohibited this dentist from being saved:</h2>
+
+      <ul>
+      <% dentist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :dentist_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :dentist_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, id: :dentist_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dental_number %>
+    <%= form.number_field :dental_number, id: :dentist_dental_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_active %>
+    <%= form.check_box :is_active, id: :dentist_is_active %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

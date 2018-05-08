@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dentist.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @dentist.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @dentist.phone_number %>
+</p>
+
+<p>
+  <strong>Dental number:</strong>
+  <%= @dentist.dental_number %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @dentist.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_dentist_path(@dentist) %> |
+<%= link_to 'Back', dentists_path %>
