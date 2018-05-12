@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customized Contents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Textcontent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customized_contents.each do |customized_content| %>
+      <tr>
+        <td><%= customized_content.title %></td>
+        <td><%= customized_content.textContent %></td>
+        <td><%= link_to 'Show', customized_content %></td>
+        <td><%= link_to 'Edit', edit_customized_content_path(customized_content) %></td>
+        <td><%= link_to 'Destroy', customized_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customized Content', new_customized_content_path %>

@@ -1,0 +1,30 @@
+<%= form_with(model: customized_content, local: true) do |form| %>
+  <% if customized_content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customized_content.errors.count, "error") %> prohibited this customized_content from being saved:</h2>
+
+      <ul>
+      <% customized_content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :customized_content_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :textContent %>
+    <%= form.text_field :textContent, id: :customized_content_textContent %>
+  </div>
+  <div class="field">
+    <%= form.label :titleMenu %>
+    <%= form.text_field :titleMenu, id: :customized_content_titleMenu %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

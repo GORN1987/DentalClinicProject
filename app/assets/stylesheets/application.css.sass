@@ -13,5 +13,26 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
+@import "bootstrap"
+
+.navbar-inverse
+  background-color: #144645
+  border-color: #144645
+
+@media (min-width: 768px)
+  .navbar
+    border-radius: 0px
+
+nav li a
+  color: #ffffff
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle
+    color: #fff
+    background-color: #306766
+    border-color: #144645
+
+.btn-primary
+    color: #fff
+    background-color: #144645
+    border-color: #144645

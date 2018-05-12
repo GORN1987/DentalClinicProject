@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508222319) do
+ActiveRecord::Schema.define(version: 20180512122549) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,25 @@ ActiveRecord::Schema.define(version: 20180508222319) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "outcome"
+  end
+
+  create_table "content_images", force: :cascade do |t|
+    t.string "file_name"
+    t.string "alternative_text"
+    t.string "optional_caption"
+    t.integer "customized_contents_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customized_contents_id"], name: "index_content_images_on_customized_contents_id"
+  end
+
+  create_table "customized_contents", force: :cascade do |t|
+    t.string "title"
+    t.string "textContent"
+    t.string "titleMenu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "dentists", force: :cascade do |t|
@@ -58,6 +77,18 @@ ActiveRecord::Schema.define(version: 20180508222319) do
     t.string "medical_notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "login"
+    t.string "password_digest"
+    t.string "login_type"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "role"
   end
 
 end

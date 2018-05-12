@@ -1,0 +1,26 @@
+<div>
+
+  <div style="width: 300px; margin: auto;">
+    <%= form_for(:login, url: authenticate_path) do |f| %>
+      <div class="form-group">
+        <%= f.label :login %>
+        <%= f.text_field :login, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      </br>
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+    </br>
+    <% if flash[:message] %>
+      <div class="alert alert-danger"><%= flash[:message] %></div>
+    <% end %>
+
+
+  </div>
+
+
+</div>

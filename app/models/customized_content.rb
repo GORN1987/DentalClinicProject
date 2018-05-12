@@ -1,0 +1,2 @@
+class CustomizedContent < ApplicationRecord
+end

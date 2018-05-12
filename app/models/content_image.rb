@@ -1,0 +1,3 @@
+class ContentImage < ApplicationRecord
+
+end

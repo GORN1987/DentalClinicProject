@@ -9,8 +9,15 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1
   # GET /contacts/1.json
+  def form_for_user
+    @contact = Contact.new
+    render "_form_for_user"
+  end
+
+
   def show
   end
+
 
   # GET /contacts/new
   def new

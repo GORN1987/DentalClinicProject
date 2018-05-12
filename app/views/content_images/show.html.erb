@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @content_image.file_name %>
+</p>
+
+<p>
+  <strong>Alternative text:</strong>
+  <%= @content_image.alternative_text %>
+</p>
+
+<p>
+  <strong>Optional caption:</strong>
+  <%= @content_image.optional_caption %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_content_image_path(@content_image) %> |
+<%= link_to 'Back', content_images_path %>

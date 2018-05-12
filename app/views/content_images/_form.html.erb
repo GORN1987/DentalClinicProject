@@ -1,0 +1,40 @@
+<%= form_with(model: content_image, local: true) do |form| %>
+  <% if content_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(content_image.errors.count, "error") %> prohibited this content_image from being saved:</h2>
+
+      <ul>
+      <% content_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :alternative_text %>
+    <%= form.text_field :alternative_text, id: :content_image_alternative_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :optional_caption %>
+    <%= form.text_field :optional_caption, id: :content_image_optional_caption %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :customized_contents_id %>
+    <%= form.select :customized_contents_id, CustomizedContent.all.collect {|p| [p.title, p.id]}, {include_blank: true} %>
+
+  </div>
+
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :file_upload %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

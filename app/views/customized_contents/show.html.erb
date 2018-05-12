@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @customized_content.title %>
+</p>
+
+<p>
+  <strong>Textcontent:</strong>
+  <%= @customized_content.textContent %>
+</p>
+
+<%= link_to 'Edit', edit_customized_content_path(@customized_content) %> |
+<%= link_to 'Back', customized_contents_path %>

@@ -1,0 +1,2 @@
+module CustomizedContentsHelper
+end

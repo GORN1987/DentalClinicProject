@@ -1,1 +1,10 @@
-<%= @customized_contents. %>
+<h1><%= @customized_content.title %></h1>
+
+<h2><%= @customized_content.textContent %></h2>
+
+<% @images.each do |image| %>
+  <h3><%= image.optional_caption %></h3>
+  <br>
+  <img class="img_content" src="/download_image/2" alt="<%= image.alternative_text %>"></img>
+  <br>
+<% end %>
