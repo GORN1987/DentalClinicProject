@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512122549) do
+ActiveRecord::Schema.define(version: 20180512202058) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180512122549) do
     t.integer "customized_contents_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_text"
     t.index ["customized_contents_id"], name: "index_content_images_on_customized_contents_id"
   end
 

@@ -1,10 +1,24 @@
-<h1><%= @customized_content.title %></h1>
+<div class="col-sm-12">
+  <h3><%= @customized_content.title %></h3>
+</div>
 
-<h2><%= @customized_content.textContent %></h2>
+<div class="col-sm-12">
+  <p><%= @customized_content.textContent %></p>
+</div>
+
 
 <% @images.each do |image| %>
-  <h3><%= image.optional_caption %></h3>
+
   <br>
-  <img class="img_content" src="/download_image/2" alt="<%= image.alternative_text %>"></img>
+  <div class="col-sm-12">
+    <h3><%= image.optional_caption %></h3>
+  </div>
+  <div class="col-sm-6">
+
+    <img class="img_content" src="/download_image/<%= image.id.to_s %>" alt="<%= image.alternative_text %>"></img>
+  </div>
+  <div>
+    <%= image.image_text %>
+  </div>
   <br>
 <% end %>
