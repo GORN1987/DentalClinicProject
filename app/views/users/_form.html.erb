@@ -4,56 +4,66 @@
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :login %>
-    <%= form.text_field :login, id: :user_login, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :password %>
-    <%= form.password_field :password, id: :user_password, class: "form-control" %>
-  </div>
-
-
-  <div class="form-group">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, id: :password_conformation_digest, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :login_type %>
-    <%= form.select :login_type, [["Admin", "admin"], ["Staff", "staff"]], {include_blank: false}, class: "form-control" %>
+  <div class="col-sm-12">
+    <% if flash[:message] %>
+      <div class="alert alert-danger"><%= flash[:message] %></div>
+    <% end %>
 
   </div>
+  <div class="col-sm-6">
 
 
-  <div class="form-group">
-    <%= form.label :role %>
-    <%= form.select :role, [["Dentist", "dentist"], ["Nurse", "nurse"], ["Secretarie", "secretarie"]], {include_blank: false}, class: "form-control" %>
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :user_name, class: "form-control" %>
+    </div>
 
+    <div class="form-group">
+      <%= form.label :login %>
+      <%= form.text_field :login, id: :user_login, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.password_field :password, id: :user_password, class: "form-control" %>
+    </div>
+
+
+    <div class="form-group">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, id: :password_conformation_digest, class: "form-control" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= form.label :email %>
-    <%= form.email_field :email, id: :user_email, class: "form-control" %>
-  </div>
 
-  <div class="form-group">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :user_phone, class: "form-control" %>
-  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= form.label :login_type %>
+      <%= form.select :login_type, [["Admin", "admin"], ["Staff", "staff"]], {include_blank: false}, class: "form-control" %>
 
+    </div>
+
+
+    <div class="form-group">
+      <%= form.label :role %>
+      <%= form.select :role, [["Dentist", "dentist"], ["Nurse", "nurse"], ["Secretarie", "secretarie"]], {include_blank: false}, class: "form-control" %>
+
+    </div>
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.email_field :email, id: :user_email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, id: :user_phone, class: "form-control" %>
+    </div>
+  </div>
   <div class="form-group">
     <%= form.submit class: "btn btn-primary" %>
   </div>
