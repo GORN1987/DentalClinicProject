@@ -34,7 +34,7 @@
 
   <div class="form-group">
     <%= form.label :login_type %>
-    <%= form.select :login_type, [["Admin","admin"],["Staff","staff"]], {include_blank: false}, class: "form-control" %>
+    <%= form.select :login_type, [["Admin", "admin"], ["Staff", "staff"]], {include_blank: false}, class: "form-control" %>
 
   </div>
 
@@ -57,4 +57,7 @@
   <div class="form-group">
     <%= form.submit class: "btn btn-primary" %>
   </div>
+
+
+
 <% end %>

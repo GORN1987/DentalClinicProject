@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h3>Users</h3>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Login</th>
-      <th>Password digest</th>
       <th>Login type</th>
       <th>Email</th>
       <th>Phone</th>
@@ -20,13 +19,16 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.login %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= user.login_type %></td>
+        <% if user.login_type == "admin" %>
+        <td>Admin</td>
+        <% else %>
+        <td>Staff</td>
+        <% end %>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path,  class: "btn btn-primary" %>
