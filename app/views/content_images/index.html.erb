@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Content Images</h1>
+<h3>Content Images</h3>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>File name</th>
@@ -20,9 +20,9 @@
         <td><%= content_image.alternative_text %></td>
         <td><%= content_image.optional_caption %></td>
 
-        <td><%= link_to 'Show', content_image %></td>
-        <td><%= link_to 'Edit', edit_content_image_path(content_image) %></td>
-        <td><%= link_to 'Destroy', content_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', content_image, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_content_image_path(content_image), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', content_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Content Image', new_content_image_path %>
+<%= link_to 'New Content Image', new_content_image_path,class: "btn btn-primary" %>

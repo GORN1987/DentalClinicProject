@@ -10,35 +10,36 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :patient_name %>
+<div class="col-sm-6"> 
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :patient_name, class: "form-control" %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :patient_email, class: "form-control" %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.label :address %>
+      <%= form.text_field :address, id: :patient_address, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= form.label :alergies %>
+      <%= form.text_field :alergies, id: :patient_alergies, class: "form-control" %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.label :medical_notes %>
+      <%= form.text_field :medical_notes, id: :patient_medical_notes, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :patient_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :patient_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergies %>
-    <%= form.text_field :alergies, id: :patient_alergies %>
-  </div>
-
-  <div class="field">
-    <%= form.label :medical_notes %>
-    <%= form.text_field :medical_notes, id: :patient_medical_notes %>
-  </div>
-
-
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>
