@@ -5,10 +5,10 @@
                 function () {
                     alert ("A standard length will be suggested according the kind of specialist.");
                     if ($("[name='appointment[specialist_type]']").val() == "general") {
-                        $("#cunsult_length").val(30);
+                        $("#consult_length").val(30);
                     }
                     else {
-                        $("#cunsult_length").val(60);
+                        $("#consult_length").val(60);
                     }
 
                 }
@@ -63,11 +63,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :cunsult_length %>
-    <%= form.number_field :cunsult_length, id: :cunsult_length %>
+    <%= form.label :consult_length %>
+    <%= form.number_field :consult_length, id: :consult_length %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"  %>
   </div>
 <% end %>
