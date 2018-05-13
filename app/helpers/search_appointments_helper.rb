@@ -1,0 +1,2 @@
+module SearchAppointmentsHelper
+end

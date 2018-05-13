@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contacts</h1>
+<h3>Contacts</h3>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,9 +20,9 @@
         <td><%= contact.email %></td>
         <td><%= contact.phone_number %></td>
         <td><%= contact.message %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', contact, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact),class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'New Contact', new_contact_path, class: "btn btn-primary"%>

@@ -1,9 +1,9 @@
 <script>
     $("document").ready(
-        function() {
+        function () {
             $("[name='appointment[specialist_type]']").change(
                 function () {
-                    alert ("A standard length will be suggested according the kind of specialist.");
+                    alert("A standard length will be suggested according the kind of specialist.");
                     if ($("[name='appointment[specialist_type]']").val() == "general") {
                         $("#consult_length").val(30);
                     }
@@ -18,56 +18,61 @@
 
 
 </script>
+<div class="col-sm-12">
+  <%= form_with(model: appointment, local: true) do |form| %>
+    <% if appointment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
-<%= form_with(model: appointment, local: true) do |form| %>
-  <% if appointment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+        <ul>
+          <% appointment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :date %>
+        <%= form.datetime_select :date, id: :appointment_date, class: "form-control" %>
+      </div>
 
-      <ul>
-        <% appointment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <div class="form-group">
+        <%= form.label :fee %>
+        <%= form.text_field :fee, id: :appointment_fee, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :medical_notes %>
+        <%= form.text_field :notes, id: :patient_medical_notes, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :patients %>
+        <%= form.select :patients_id, Patient.all.collect {|p| [p.name, p.id]}, {include_blank: true}, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :dentists %>
+        <%= form.select :dentists_id, Dentist.all.collect {|p| [p.name, p.id]}, {include_blank: true}, class: "form-control" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= form.label :specialist_type %>
+        <%= form.select :specialist_type, [["General", "general"], ["Specialist", "specialist"]], {include_blank: true}, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :consult_length %>
+        <%= form.number_field :consult_length, id: :consult_length, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="actions">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date, id: :appointment_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fee %>
-    <%= form.text_field :fee, id: :appointment_fee %>
-  </div>
-  <div class="field">
-    <%= form.label :medical_notes %>
-    <%= form.text_field :notes, id: :patient_medical_notes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :patients %>
-    <%= form.select :patients_id, Patient.all.collect {|p| [p.name, p.id]}, {include_blank: true} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dentists %>
-    <%= form.select :dentists_id, Dentist.all.collect {|p| [p.name, p.id]}, {include_blank: true} %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :specialist_type %>
-    <%= form.select :specialist_type, [["General", "general"], ["Specialist", "specialist"]], {include_blank: true} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :consult_length %>
-    <%= form.number_field :consult_length, id: :consult_length %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary"  %>
-  </div>
-<% end %>

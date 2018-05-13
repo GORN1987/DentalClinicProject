@@ -10,5 +10,6 @@
   <%= @appointment.fee %>
 </p>
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment), class: "btn btn-primary" %> |
+<%= link_to 'Back', appointments_path, class: "btn btn-primary" %>

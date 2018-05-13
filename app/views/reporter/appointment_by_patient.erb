@@ -1,6 +1,7 @@
-<h3>Total Fee per dentist</h3>
+<h3>Patients per doctor</h3>
 
-<%= form_for(:search, url: "/search_appointment_by_dentist") do |form| %>
+<%= form_for(:search, url: "/search_appointment_by_patient") do |form| %>
+
 
   <div class="col-sm-12">
     <div class="form-group">
@@ -29,31 +30,34 @@
   </div>
 
 <% end %>
-
 <% if @appointments %>
+
   <table class="table">
     <thead>
+    <th>Patient Name</th>
     <th>Date</th>
-    <th>Fee</th>
+    <th>Fee Paid</th>
     </thead>
     <tbody>
-
     <% @appointments.each do |appointment| %>
 
 
       <tr>
         <td>
-          <%= appointment.date %>
+          <%= Patient.find(appointment.patients_id).name %>
         </td>
         <td>
-          <%= appointment.qtt %>
+          <%= appointment.date %>
         </td>
         <td>
           <%= appointment.fee %>
         </td>
       </tr>
+
+
     <% end %>
 
     </tbody>
   </table>
+
 <% end %>
