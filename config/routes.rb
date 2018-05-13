@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reporter/doctor_by_appointment'
+
   resources :users
   resources :content_images
   resources :customized_contents
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
   root "customized_contents#show_format_content"
   get "content" => "customized_contents#content"
   get "login" => "login#index"
+  get "appointment_by_dentist" => "reporter#appointment_by_dentist"
+
   post "authenticate" => "login#authenticate"
   get "logout" => "login#logout"
   get "show_form_for_user" => "contacts#form_for_user"

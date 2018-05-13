@@ -1,0 +1,27 @@
+<h3>Appointment by doctors</h3>
+
+<%= form_for(:search, url: "/search_appointment_by_dentist") do |form| %>
+
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= form.label :dentists %>
+      <%= form.select :dentists_id, Dentist.all.collect {|p| [p.name, p.id]}, {include_blank: true}, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="col-sm-6">
+    <%= form.label :date_begin %>
+    <div class="form-group">
+      <%= form.date_field :date1, :id => "datepicker1", :class => "form-control"%>
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-6">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+
+<% end %>
