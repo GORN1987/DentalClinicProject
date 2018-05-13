@@ -1,4 +1,27 @@
 class ReporterController < ApplicationController
+
+  def daily_appointment
+
+    @appointments = Appointment.where("date(date) = date('now')");
+  end
+
+  def contact_status
+
+
+  end
+
+  def search_contact_status
+
+    if params[:search][:status] != ""
+      @contacts = Contact.where(["status = ?", params[:search][:status]]);
+    else
+      @contacts = Contact.all;
+    end
+
+    render "contact_status"
+  end
+
+
   def appointment_by_dentist
 
 
@@ -22,9 +45,7 @@ class ReporterController < ApplicationController
       if search[0] != ""
         search[0] = search[0] + " and "
       end
-      if search[0] != ""
 
-      end
       search[0] = search[0] + "date(date) >= ?"
       search << params[:search][:date1]
     end
@@ -37,14 +58,22 @@ class ReporterController < ApplicationController
 
       search << params[:search][:date2]
 
-      @appointments = Appointment.select("date(date) date ,count(*) qtt, sum(fee) fee").
-          where(search).
-          group("date(date)").
-          order("date DESC")
-
-      render "appointment_by_dentist"
 
     end
+
+    if (search[0] != "")
+      @appointments = Appointment.select("date(date),  date, dentists_id ,count(*) qtt, sum(fee) fee").
+          where(search).
+          group("date(date), dentists_id").
+          order("date DESC")
+
+    else
+      @appointments = Appointment.select("date(date) date ,count(*) qtt, sum(fee) fee").
+
+          group("date(date)").
+          order("date DESC")
+    end
+    render "appointment_by_dentist"
 
   end
 
@@ -85,13 +114,20 @@ class ReporterController < ApplicationController
 
       search << params[:search][:date2]
 
+
+    end
+
+
+    if (search[0] != "")
       @appointments = Appointment.select(" date, patients_id, notes, specialist_type , fee").
           where(search).
           order("date")
-
-      render "appointment_by_patient"
-
+    else
+      @appointments = Appointment.select(" date, patients_id, notes, specialist_type , fee").
+          order("date")
     end
+
+    render "appointment_by_patient"
 
   end
 

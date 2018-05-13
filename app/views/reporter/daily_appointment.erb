@@ -1,0 +1,32 @@
+<% if @appointments %>
+  <table class="table">
+    <thead>
+    <th>Date</th>
+    <th>Patient</th>
+    <th>Doctor</th>
+    <th>Notes</th>
+    </thead>
+    <tbody>
+
+    <% @appointments.each do |appointment| %>
+
+
+      <tr>
+        <td>
+          <%= appointment.date %>
+        </td>
+        <td>
+          <%= Patient.find(appointment.patients_id).name %>
+        </td>
+        <td>
+          <%= Dentist.find(appointment.dentists_id).name %>
+        </td>
+        <td>
+          <%= appointment.notes %>
+        </td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+<% end %>

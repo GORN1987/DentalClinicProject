@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   get "login" => "login#index"
   get "appointment_by_dentist" => "reporter#appointment_by_dentist"
   get "appointment_by_patient" => "reporter#appointment_by_patient"
+  get "contact_status" => "reporter#contact_status"
+  get "daily_appointment" => "reporter#daily_appointment"
 
   post "search_appointment_by_dentist" => "reporter#search_appointment_by_dentist"
   post "search_appointment_by_patient" => "reporter#search_appointment_by_patient"
+  post "search_contact_status" => "reporter#search_contact_status"
 
   post "authenticate" => "login#authenticate"
   get "logout" => "login#logout"

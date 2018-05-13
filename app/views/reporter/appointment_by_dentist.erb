@@ -33,15 +33,20 @@
 <% if @appointments %>
   <table class="table">
     <thead>
+
+    <th>Dentist</th>
     <th>Date</th>
-    <th>Fee</th>
+    <th>Quantity appointment</th>
+    <th>Total Fee</th>
     </thead>
     <tbody>
 
     <% @appointments.each do |appointment| %>
 
-
       <tr>
+        <td>
+          <%= Dentist.find(appointment.dentists_id).name %>
+        </td>
         <td>
           <%= appointment.date %>
         </td>

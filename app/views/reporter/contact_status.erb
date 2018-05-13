@@ -1,0 +1,57 @@
+
+
+<h3>Contact list per status</h3>
+
+<%= form_for(:search, url: "/search_contact_status") do |form| %>
+
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <%= form.label :status %>
+      <%= form.select :status, [["Not Answered", "not_answered"], ["Answered", "answered"]], {include_blank: false}, class: "form-control" %>
+
+    </div>
+
+  </div>
+
+  <div class="col-sm-12">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+
+<% end %>
+<% if @contacts %>
+
+  <table class="table">
+    <thead>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+
+    </thead>
+    <tbody>
+    <% @contacts.each do |contact| %>
+
+
+      <tr>
+        <td>
+          <%= contact.created_at %>
+        </td>
+        <td>
+          <%= contact.name %>
+        </td>
+        <td>
+          <%= contact.email %>
+        </td>
+        <td>
+          <%= contact.phone_number %>
+        </td>
+      </tr>
+
+
+    <% end %>
+
+    </tbody>
+  </table>
+
+<% end %>
