@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Patients</h1>
+<h3>Patients</h3>
 
-<table>
+<table class = "table">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,9 +22,9 @@
         <td><%= patient.address %></td>
         <td><%= patient.alergies %></td>
         <td><%= patient.medical_notes %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', patient, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'New Patient', new_patient_path, class: "btn btn-primary" %>
