@@ -10,22 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512202058) do
-
-  create_table "administrators", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180513092216) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date"
     t.decimal "fee"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "patients_id"
     t.integer "dentists_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "notes"
+    t.string "specialist_type"
+    t.integer "consult_length"
     t.index ["dentists_id"], name: "index_appointments_on_dentists_id"
     t.index ["patients_id"], name: "index_appointments_on_patients_id"
   end

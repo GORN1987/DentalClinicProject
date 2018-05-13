@@ -15,7 +15,7 @@ class CustomizedContentsController < ApplicationController
 
   def show_format_content
 
-    if !defined?(@customized_content).nil?
+    if @customized_content
       @images = ContentImage.where(:customized_contents_id => @customized_content.id)
     else
       redirect_to :show_form_for_user

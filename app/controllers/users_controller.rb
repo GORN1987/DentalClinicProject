@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    debugger
     @user = User.new(user_params)
     if (verifyDuplicatedLogin(@user.login))
       respond_to do |format|

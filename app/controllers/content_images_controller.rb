@@ -31,11 +31,13 @@ class ContentImagesController < ApplicationController
   def create
     @content_image = ContentImage.new(content_image_params)
 
-    upload_file = params["content_image"]["file_upload"]
-    file_name_conc = File.join("public/uploads/", upload_file.original_filename)
-    File.open(file_name_conc, "wb") {|t| t.write(upload_file.read)}
+    if !params["content_image"]["file_upload"].nil?
+      upload_file = params["content_image"]["file_upload"]
+      file_name_conc = File.join("public/uploads/", upload_file.original_filename)
+      File.open(file_name_conc, "wb") {|t| t.write(upload_file.read)}
+      @content_image.file_name = file_name_conc
+    end
 
-    @content_image.file_name = file_name_conc
     respond_to do |format|
 
       if @content_image.save
@@ -56,7 +58,7 @@ class ContentImagesController < ApplicationController
   # PATCH/PUT /content_images/1
   # PATCH/PUT /content_images/1.json
   def update
-    if  !params["content_image"]["file_upload"].nil?
+    if !params["content_image"]["file_upload"].nil?
       upload_file = params["content_image"]["file_upload"]
       file_name_conc = File.join("public/uploads/", upload_file.original_filename)
       File.open(file_name_conc, "wb") {|t| t.write(upload_file.read)}
@@ -94,6 +96,6 @@ class ContentImagesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def content_image_params
-    params.require(:content_image).permit(:file_name,:image_text, :alternative_text, :optional_caption, :customized_contents_id)
+    params.require(:content_image).permit(:file_name, :image_text, :alternative_text, :optional_caption, :customized_contents_id)
   end
 end
