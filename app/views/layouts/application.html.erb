@@ -40,24 +40,27 @@
             <li><%= link_to "Dentists", :dentists %></li>
 
             <li><%= link_to "Users", :users %></li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reporters<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/daily_appointment">Daily appointments</a></li>
+                <li><a href="/appointment_by_dentist">Total Fee per dentist</a></li>
+                <li><a href="/contact_status">Contacts List per Status</a></li>
+                <li><a href="/appointment_by_patient">Patients per doctor</a></li>
+              </ul>
+            </li>
+
           <% end %>
 
         <% end %>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reporters<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/daily_appointment">Daily appointments</a></li>
-            <li><a href="/appointment_by_dentist">Total Fee per dentist</a></li>
-            <li><a href="/contact_status">Contacts List per Status</a></li>
-            <li><a href="/appointment_by_patient">Patients per doctor</a></li>
-          </ul>
-        </li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !defined?(@user) %>
           <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <% else %>
-          <li><%= link_to "Log Out", "/logout", :data => {confirm: "Do you want log out?"} %></li>
+          <li><%= link_to " Log Out", "/logout", :data => {confirm: "Do you want log out?"}, class: "glyphicon glyphicon-log-out" %></li>
         <% end %>
       </ul>
     </div>
