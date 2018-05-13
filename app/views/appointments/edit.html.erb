@@ -1,6 +1,7 @@
 <h3>Editing Appointment</h3>
 
 <%= render 'form', appointment: @appointment %>
-
-<%= link_to 'Show', @appointment, class: "btn btn-primary" %>
-<%= link_to 'Back', appointments_path, class: "btn btn-primary" %>
+  <div class="col-sm-12">
+    <%= link_to 'Show', @appointment, class: "btn btn-primary" %>
+    <%= link_to 'Back', appointments_path, class: "btn btn-primary" %>
+  </div>
